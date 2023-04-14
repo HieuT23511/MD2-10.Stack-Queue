@@ -13,13 +13,12 @@ queue.enqueue(patient3);
 queue.enqueue(patient4);
 queue.enqueue(patient5);
 queue.sortPatientByCode();
-console.log(queue.listPatient);
+console.table(queue.listPatient);
 for (let i = 0; i <4; i++) {
     console.log(queue.nextPatient());
     console.log(queue.waitPatient());
-    queue.dequeue();
-    console.log(queue.listPatient);
+    console.table(queue.dequeue());
+    console.table(queue.listPatient);
 }
-
 // console.log(queue.waitPatient());
 // console.log(queue.listPatient);

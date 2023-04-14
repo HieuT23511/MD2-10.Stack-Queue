@@ -2,6 +2,7 @@ import {Patient} from "./Patient";
 
 export class Queue {
     listPatient :Patient[] = [];
+    listCheckup: string[]=[];
     size :number;
     constructor() {
         this.size = 0;
@@ -12,7 +13,12 @@ export class Queue {
     }
     dequeue(){
         this.size --;
-        return this.listPatient.shift();
+        let dequeuePatient: Patient | undefined = this.listPatient.shift();
+        if(dequeuePatient){
+            this.listCheckup.push(dequeuePatient.getName())
+            console.log('List Patient Checkup: ')
+        }
+        return this.listCheckup
     }
     sortPatientByCode(){
         this.listPatient.sort((a:Patient,b:Patient)=> a.getCode() - b.getCode());
